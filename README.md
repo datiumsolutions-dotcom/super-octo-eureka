@@ -34,3 +34,30 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Supabase migrations (DB foundation)
+
+Este PR agrega únicamente base de datos (schema, RLS, funciones y vistas) en `supabase/migrations`.
+No incluye cambios de frontend.
+
+### Cómo aplicar migraciones
+
+Puedes aplicar las migraciones de dos formas:
+
+1. **Supabase SQL Editor**
+   - Ejecutar en orden:
+     - `supabase/migrations/0001_init.sql`
+     - `supabase/migrations/0002_rls.sql`
+     - `supabase/migrations/0003_views_functions.sql`
+
+2. **Supabase CLI**
+   - Si el proyecto está linkeado, usar:
+   ```bash
+   supabase db push
+   ```
+
+### Variables de entorno esperadas para el próximo PR
+
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
